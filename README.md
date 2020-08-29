@@ -1,1 +1,3 @@
 # hassio-config
+
+details soon....
