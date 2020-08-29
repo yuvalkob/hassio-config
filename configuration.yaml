@@ -1,0 +1,233 @@
+
+homeassistant:
+  # If you want to customize entries with friendly_name or custom icon.
+  # Read more here: https://www.home-assistant.io/docs/configuration/customizing-devices/
+  # Uncomment line below and create file customize.yaml or edit it
+  # customize: !include customize.yaml
+
+  # Below entry links to the packages folder required for Dwains Theme
+  #packages: !include_dir_named packages/ # Comment this whole line if you want to disable Dwains Theme
+
+  # If you had any important strings before in homeassistant: place them back here below
+  # 
+#End of dwains-theme necessary code#
+# Configure a default setup of Home Assistant (frontend, api, etc)
+default_config:
+browser_mod:
+
+spotcast:
+  sp_dc: !secret
+  sp_key: !secret
+
+
+
+weather:
+  - platform: openweathermap
+    api_key: !secret
+
+shell_command:
+  set_musiccast_link: 'bash ./set_musiccast_server.sh'
+  watchdog: 'curl -m 10 --retry 5 https://hc-ping.com/XXXXXXXXXXXXXXXXXXX'
+
+
+emulated_hue:
+ exposed_domains:
+  - switch
+  - cover
+  - light
+http:
+  base_url: !secret
+
+discovery:
+  enable:
+    - dlna_dmr
+# Sensors
+sensor:
+  - platform: spotcast
+  - platform: spotify-playlist-sensor
+    client_id: !secret
+    client_secret: !secret
+    number_of_playlists: 12
+    
+  - platform: time_date
+    display_options:
+      - 'time'
+      - 'date'
+      - 'date_time'
+      - 'date_time_utc'
+      - 'date_time_iso'
+      - 'time_date'
+      - 'time_utc'
+      - 'beat'
+  # Weather prediction
+  - platform: yr
+  - platform: mqtt
+    state_topic: "zigbee2mqtt/bridge/state"
+    icon: mdi:router-wireless
+  - platform: template
+    sensors:
+      sunlight_pct:
+        entity_id:
+          - sun.sun
+          - sensor.dark_sky_cloud_coverage
+        value_template: >-
+          {%- set elevation = state_attr('sun.sun','elevation') | float %}
+          {%- set cloud_coverage = states('sensor.dark_sky_cloud_coverage') | float %}
+          {%- set cloud_factor = (1 - (0.75 * ( cloud_coverage / 100) ** 3 )) %}
+          {%- set min_elevation = -6 %}
+          {%- set max_elevation = 90 %}
+          {%- set adjusted_elevation = elevation - min_elevation %}
+          {%- set adjusted_elevation = [adjusted_elevation,0] | max %}
+          {%- set adjusted_elevation = [adjusted_elevation,max_elevation - min_elevation] | min %}
+          {%- set adjusted_elevation = adjusted_elevation / (max_elevation - min_elevation) %}
+          {%- set adjusted_elevation = adjusted_elevation %}
+          {%- set adjusted_elevation = adjusted_elevation * 100 %}
+          {%- set brightness = adjusted_elevation * cloud_factor %}
+          {{ brightness | round }}
+        unit_of_measurement: '%'
+        device_class: 'illuminance'   
+        
+        
+      ## Daylight brightness converted to opacity for CSS     
+      sunlight_opacity:
+        entity_id:
+          - sensor.sunlight_pct
+        value_template: >-
+          {%- set sunpct = states('sensor.sunlight_pct') | float %}
+          {%- set opacity = sunpct / 100 | float %}
+          {{ opacity }}
+
+
+      boiler_timer_remaining:
+        entity_id: timer.boiler_timer
+        value_template: "{{state_attr('timer.boiler_timer', 'remaining')}}"
+      boiler_timer_display:
+        entity_id: timer.boiler_timer
+        value_template: >
+          "{% if is_state('timer.boiler_timer', 'active') %}
+            {{state_attr('timer.boiler_timer', 'remaining')}}
+          {% else %} 
+            Halted
+          {% endif %}"
+      
+      ## Converts time and date into sentence for UI
+      day:
+        entity_id: sensor.date
+        value_template: >
+          {% set days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"] %}
+          {{ days[now().weekday()] }}
+      month:
+        value_template: >
+          {% set months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"] %}
+          {{ strptime(states('sensor.date'), '%Y-%m-%d').day }}
+          {{ months[now().month-1] }}
+      date_string:
+        friendly_name: "Full Date"
+        value_template: "{{ states('sensor.day') }}, {{ states('sensor.month') }} {{ now().year }}"
+timer:
+  zigbee_permit_join:
+    name: Time remaining
+    duration: 600 # Updated this to the number of seconds you wish
+  boiler_timer:
+switch:
+  - platform: broadlink
+    host: !secret
+    mac: !secret
+# Text to speech
+
+smartir:
+
+variable:
+  alarm_clock:
+    value: 'Alarm Clock'
+    restore: true
+
+tts:
+  - platform: google_translate
+    service_name: google_say
+
+
+spotify:
+    client_id: !secret
+    client_secret: !secret
+    
+remote_homeassistant:
+  instances:
+  - host: !secret
+    port: 8123
+    include:
+      domains:
+      - sensor
+    access_token: !secret
+
+plant:
+  balcony_hang:
+    sensors:
+      moisture: sensor.sensor1_moisture
+      battery: sensor.sensor1_battery
+      temperature: sensor.sensor1_temperature
+      conductivity: sensor.sensor1_conductivity
+      brightness: sensor.sensor1_light_intensity
+    min_moisture: 20
+  balcony_floor:
+    sensors:
+      moisture: sensor.sensor2_moisture
+      battery: sensor.sensor2_battery
+      temperature: sensor.sensor2_temperature
+      conductivity: sensor.sensor2_conductivity
+      brightness: sensor.sensor2_light_intensity
+    min_moisture: 20
+
+frontend:
+  themes: !include_dir_merge_named themes
+
+media_extractor:
+  default_query: worstaudio
+
+wake_on_lan: # enables `wake_on_lan` domain
+
+media_player:
+  - platform: androidtv
+    #name: Living Room Shield
+    host: !secret
+    adb_server_ip: 127.0.0.1
+  - platform: yamaha_musiccast
+    #name: Living Room MusicCast
+    host: !secret
+    port: 5005
+  - platform: yamaha_musiccast
+    #name: Parents Room MusicCast
+    host: !secret
+    port: 5006
+  - platform: yamaha_musiccast
+    #name: Porch MusicCast
+    host: !secret
+    port: 5007
+  - platform: yamaha_musiccast
+    #name: Parents Bathroom Room MusicCast
+    host: !secret
+    port: 5008
+  - platform: yamaha_musiccast
+    #name: Bathroom Room MusicCast
+    host: !secret
+    port: 5009
+
+webostv:
+  host: !secret
+  #other settings
+  turn_on_action:
+    service: wake_on_lan.send_magic_packet
+    data:
+      mac: !secret
+
+speedtestdotnet:
+   scan_interval:
+    minutes: 30
+
+group: !include groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml
+input_boolean: !include input_boolean.yaml
+climate: !include climate.yaml
+scene: !include scene.yaml
+homekit: !include homekit.yaml

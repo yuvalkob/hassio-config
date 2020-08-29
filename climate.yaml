@@ -1,0 +1,46 @@
+    - platform: mqtt
+      name: Living Room Aircon
+      modes:
+        - "off"
+        - "auto"
+        - "cool"
+        - "heat"
+        - "dry"
+        - "fan_only"
+      fan_modes:
+        - "Auto"
+        - "Min"
+        - "Low"
+        - "Medium"
+        - "High"
+        - "Max"
+      swing_modes:
+        - "Off"
+        - "Auto"
+        - "Highest"
+        - "High"
+        - "Middle"
+        - "Low"
+        - "Lowest"
+      power_command_topic: "ir_server/ac/cmnd/power"
+      mode_command_topic: "ir_server/ac/cmnd/mode"
+      mode_state_topic: "ir_server/ac/stat/mode"
+      temperature_command_topic: "ir_server/ac/cmnd/temp"
+      temperature_state_topic: "ir_server/ac/stat/temp"
+      fan_mode_command_topic: "ir_server/ac/cmnd/fanspeed"
+      fan_mode_state_topic: "ir_server/ac/stat/fanspeed"
+      swing_mode_command_topic: "ir_server/ac/cmnd/swingv"
+      swing_mode_state_topic: "ir_server/ac/stat/swingv"
+      min_temp: 16
+      max_temp: 32
+      temp_step: 1
+      retain: false
+      
+    - platform: smartir
+      name: Living Room AC
+      temperature_sensor: sensor.living_room_temp_sensor_temperature
+      unique_id: living_room_ac
+      device_code: 1818
+      controller_data: !secret
+    - platform: sensibo
+      api_key: !secret

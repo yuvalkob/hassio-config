@@ -1,0 +1,53 @@
+kitchen:
+  name: Kitchen
+  entities:
+    - switch.island_light
+    - switch.kitchen_light
+    - light.kitchen_led
+  icon: mdi:food-apple-outline
+living_room:
+  name: Living Room
+  entities:
+    - switch.living_room_light
+  icon: mdi:account-group-outline
+entrance:
+  name: Entrance
+  entities:
+    - switch.entrance_light
+  icon: mdi:door-open
+mamad:
+  name: Mamad
+  entities:
+    - switch.mamad_light
+kids_room:
+  name: Kids Room
+  entities:
+    - switch.kids_light
+bedroom:
+  name: Badroom
+  entities:
+    - switch.ortal_bed_light
+    - switch.yuval_bed_light
+    - switch.bedroom_light
+  icon: mdi:bed-king-outline
+porch:
+  name: Proch
+  entities:
+    - switch.porch_light
+  icon: mdi:palm-tree
+  
+dining_room:
+    name: Dining Room
+    entities:
+        - switch.wall_light
+        - switch.dining_room
+    icon: mdi:food-variant
+all_main_lights:
+    name: All Main Lights
+    entities:
+    - switch.island_light
+    - switch.kitchen_light
+    - switch.living_room_light
+    - switch.entrance_light
+    - switch.dining_room
+    - switch.wall_light

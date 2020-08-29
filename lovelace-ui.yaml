@@ -1,0 +1,2055 @@
+custom_header:
+  exceptions:
+    - conditions:
+        user: kiosk
+      config:
+        disable_sidebar: true
+        hide_header: true
+        kiosk_mode: true
+preload_cards:
+  - map
+  - iframe
+  - markdown
+preload_rows:
+  - input-select-entity
+title: Tablet
+views:
+  - badges: []
+    cards:
+      - elements:
+          - backdrop: false
+            entity: weather.openweathermap
+            name: ' '
+            style: |
+              :host {
+                left: 93.4%;
+                top:  7.5%;
+                width: 10%;
+                height: 10% !important;
+                overflow: hidden;
+                height: 9.9vw;
+                background: none  !important;
+                box-shadow: none !important;
+                font-size: 2vw !important;
+              }
+              ha-card {
+                background: none  !important;
+                box-shadow: none !important;
+                flex-flow: row-reverse !important;
+                padding: 0 !important;
+              }
+              .weather__info--add{
+                display : none !important;
+              }
+              .weather__info{
+                flex-grow: 1;
+                min-height: 1.5 !important;
+                height: 2.4vw;
+                margin-left: 0.6vw;
+              }
+              .weather__icon{
+                margin-right:0.5% !important;
+                margin-top: 3%;
+                width: 2vw !important;
+                height: 2vw !important;
+                flex: 0 0 2vw !important;
+              }
+            tap_action:
+              action: navigate
+              navigation_path: /lovelace-tablet/7
+            type: 'custom:simple-weather-card'
+          - entity: sensor.time
+            hold_action:
+              action: none
+            style:
+              color: 'rgba(255, 255, 255, 0.7)'
+              font-size: 5.41vw
+              font-weight: 200
+              left: 1.7%
+              letter-spacing: '-0.05vw'
+              max-width: 1px
+              top: 10%
+            type: state-label
+          - entity: sensor.date_string
+            hold_action:
+              action: none
+            style:
+              color: 'rgba(255, 255, 255, 0.3)'
+              font-size: 2.3vw
+              font-weight: 300
+              left: 16.8%
+              letter-spacing: '-0.05vw'
+              text-align: left
+              top: 17%
+              width: 30%
+            tap_action:
+              action: none
+            type: state-label
+          - action: none
+            image: /local/tablet_proj/buttons/rooms.png
+            style:
+              border-radius: 0vw
+              box-shadow: '0px 0.2vw 0.8vw 0px rgba(0,0,0,0.1)'
+              left: 13.9%
+              top: 27.7%
+              width: 25.8%
+            tap_action:
+              action: navigate
+              navigation_path: /lovelace-tablet/1
+            type: image
+          - action: none
+            image: /local/tablet_proj/buttons/lights.png
+            style:
+              border-radius: 0vw
+              box-shadow: '0px 0.2vw 0.8vw 0px rgba(0,0,0,0.1)'
+              left: 13.9%
+              opacity: 0
+              top: 40.7%
+              width: 25.8%
+            tap_action:
+              action: navigate
+              navigation_path: /lovelace-tablet/2
+            type: image
+          - action: none
+            image: /local/tablet_proj/buttons/covers.png
+            style:
+              border-radius: 0vw
+              box-shadow: '0px 0.2vw 0.8vw 0px rgba(0,0,0,0.1)'
+              left: 13.9%
+              opacity: 0
+              top: 54.7%
+              width: 25.8%
+            tap_action:
+              action: navigate
+              navigation_path: /lovelace-tablet/3
+            type: image
+          - action: none
+            image: /local/tablet_proj/buttons/ac.png
+            style:
+              border-radius: 0vw
+              box-shadow: '0px 0.2vw 0.8vw 0px rgba(0,0,0,0.1)'
+              left: 13.9%
+              opacity: 0
+              top: 67.3%
+              width: 25.8%
+            tap_action:
+              action: navigate
+              navigation_path: /lovelace-tablet/4
+            type: image
+          - action: none
+            image: /local/tablet_proj/buttons/boiler.png
+            style:
+              border-radius: 0vw
+              box-shadow: '0px 0.2vw 0.8vw 0px rgba(0,0,0,0.1)'
+              left: 13.9%
+              opacity: 0
+              top: 79.3%
+              width: 25.8%
+            tap_action:
+              action: navigate
+              navigation_path: /lovelace-tablet/5
+            type: image
+          - action: none
+            image: /local/tablet_proj/buttons/media.png
+            style:
+              border-radius: 0vw
+              box-shadow: '0px 0.2vw 0.8vw 0px rgba(0,0,0,0.1)'
+              left: 13.9%
+              opacity: 0
+              top: 92.2%
+              width: 25.8%
+            tap_action:
+              action: navigate
+              navigation_path: /lovelace-tablet/6
+            type: image
+          - entity: media_player.spotify_yuvalkob
+            hide:
+              controls: true
+              name: true
+              power: true
+              progress: true
+              source: true
+              volume: true
+            idle_view:
+              after: 0.1
+              when_idle: true
+              when_paused: true
+              when_standby: true
+            style: |
+              :host {
+                left: 13.9%;
+                top:  92.2%;
+                width: 26.5078125%;
+                border-radius: 5vw;
+                overflow: hidden;
+                height: 4.9vw;
+                box-shadow: none !important;
+              }
+              ha-card {
+                border-radius: 1vw;
+                overflow: hidden !important;
+                box-shadow: none !important;
+                padding: 0.1vw 0.9vw 0.7vw 1.05vw !important;
+              }
+              ha-card.--inactive .mmp-player{
+                opacity: 0 !important;
+              }
+              #primaryProgress{
+                  background: #474A52 !important;
+              }
+              .entity__info{
+                height: 3.9vw;
+                width: 65% !important;
+                max-height: 20vw !important;
+                font-size: 1.9vw !important;
+                margin:0 0 0 1.4vw !important;
+                display: inline-block !important;
+              }
+              div.mmp__bg{
+                background: #1E2022;
+              }
+              ha-card.--inactive div.mmp__bg{
+                background: none;
+              }
+              div.mmp-player {
+                padding: 0vw;
+                height: 100%;
+              }
+              ha-card {
+                height: 100%;
+              }
+              mmp-powerstrip {
+                width: 100%;
+                display: block;
+                padding:0;
+              }
+              ha-icon{
+                display: block !important;
+                height: 2vw !important;
+                width: 2vw !important;
+                margin: 0.3vw 1.5vw 0 0vw !important;
+              }
+              .entity__icon{
+                float:right;
+                size: 30%;
+                padding: 0.1vw;
+                width: 3vw !important;
+                height: 3vw !important;
+                min-width: 0 !important;
+                min-height: 0 !important;
+                margin:0 !important;
+                display: inline-block !important;
+              }
+              .mmp-player__core {
+                height: auto;
+                width: 100% !important;
+                margin-bottom: 0.1vw;
+                display: block !important;
+                position: absolute !important;
+                bottom: 0;
+              }
+              .entity__info__media{
+                max-height: 100% !important;
+              }
+              .entity__info__media span::before{
+                content: none !important
+              }
+              .attr__media_title{
+                display:block;
+                color: white;
+                font-weight: 300;
+                font-size: 1.5vw !important;
+              }
+              .attr__media_artist{
+                font-size: 1.2w !important;
+                font-weight: 200;
+                color: white;
+              }
+              .entity__artwork{
+                display:inline-block;
+                float: right;
+                margin-right: 0 !important;
+                display: inline-block;
+                float: right;
+                width: 4.2vw !important;
+                height: 4.2vw !important;
+                min-width: 0 !important;
+                margin: 0.2vw 1vw 0 0 !important;
+              }
+            tap_action:
+              action: navigate
+              navigation_path: /lovelace-tablet/6
+            type: 'custom:mini-media-player'
+          - image: /local/tablet_proj/lights/floorplan_back.png
+            style:
+              border-radius: 0vw
+              left: 70.9%
+              opacity: 1000%
+              top: 53.2%
+              width: 37.8%
+            type: image
+          - entity: switch.bathroom_light
+            image: /local/tablet_proj/lights/bathroom_light.png
+            state_filter:
+              'off': opacity(0%)
+              'on': opacity(70%)
+            style:
+              border-radius: 0vw
+              left: 76.9%
+              top: 38.9%
+              width: 12.8%
+            tap_action:
+              action: toggle
+            type: image
+          - entity: switch.porch_light
+            image: /local/tablet_proj/lights/porch_light.png
+            state_filter:
+              'off': opacity(0%)
+              'on': opacity(80%)
+            style:
+              border-radius: 0vw
+              left: 68.3%
+              top: 88.9%
+              width: 19.8%
+            tap_action:
+              action: toggle
+            type: image
+          - entity: switch.living_room_light
+            image: /local/tablet_proj/lights/living_room_light.png
+            state_filter:
+              'off': opacity(0%)
+              'on': opacity(80%)
+            style:
+              border-radius: 0vw
+              left: 67.9%
+              top: 62.2%
+              width: 31.8%
+            tap_action:
+              action: toggle
+            type: image
+          - entity: switch.service_room_light
+            image: /local/tablet_proj/lights/service_room_light.png
+            state_filter:
+              'off': opacity(0%)
+              'on': opacity(80%)
+            style:
+              border-radius: 0vw
+              left: 55.5%
+              top: 86.2%
+              width: 6%
+            tap_action:
+              action: toggle
+            type: image
+          - entity: switch.kids_light
+            image: /local/tablet_proj/lights/kids_room_light.png
+            state_filter:
+              'off': opacity(0%)
+              'on': opacity(80%)
+            style:
+              border-radius: 0vw
+              left: 77.4%
+              top: 19.2%
+              width: 12.5%
+            tap_action:
+              action: toggle
+            type: image
+          - entity: switch.mamad_light
+            image: /local/tablet_proj/lights/mamad_light.png
+            state_filter:
+              'off': opacity(0%)
+              'on': opacity(80%)
+            style:
+              border-radius: 0vw
+              left: 64.1%
+              top: 15.5%
+              width: 14.%
+            tap_action:
+              action: toggle
+            type: image
+          - entity: group.dining_room
+            image: /local/tablet_proj/lights/dining_room_light.png
+            state_filter:
+              'off': opacity(0%)
+              'on': opacity(50%)
+            style:
+              border-radius: 5%
+              box-shadow: 8 1 1px 10px
+              left: 59.%
+              mix-blend-mode: light
+              top: 69.5%
+              width: 14.%
+            tap_action:
+              action: toggle
+            type: image
+          - entity: input_boolean.movie
+            image: /local/tablet_proj/buttons/cinema2.png
+            state_filter:
+              'off': opacity(0%)
+              'on': opacity(100%)
+            style:
+              left: 34.6%
+              top: 84.7%
+              width: 10.5%
+            tap_action:
+              action: toggle
+            type: image
+          - entity: input_boolean.good_night
+            image: /local/tablet_proj/buttons/sleep2.png
+            state_filter:
+              'off': opacity(0%)
+              'on': opacity(100%)
+            style:
+              left: 34.6%
+              top: 49%
+              width: 10%
+            tap_action:
+              action: toggle
+            type: image
+          - entity: input_boolean.baby_sleep
+            image: /local/tablet_proj/buttons/newborn2.png
+            state_filter:
+              'off': opacity(0%)
+              'on': opacity(100%)
+            style:
+              left: 34.6%
+              opacity: 100%
+              top: 67%
+              width: 11%
+            tap_action:
+              action: toggle
+            type: image
+          - entity: input_boolean.goodbye
+            image: /local/tablet_proj/buttons/door2.png
+            state_filter:
+              'off': opacity(0%)
+              'on': opacity(100%)
+            style:
+              left: 34.9%
+              top: 32%
+              width: 10%
+            tap_action:
+              action: toggle
+            type: image
+          - entity: group.all_main_lights
+            image: /local/tablet_proj/buttons/chandelier2.png
+            state_filter:
+              'off': opacity(0%)
+              'on': opacity(100%)
+            style:
+              left: 34.6%
+              top: 14%
+              width: 10%
+            tap_action:
+              action: toggle
+            type: image
+        image: /local/tablet_proj/background_with_scenes2.png
+        type: picture-elements
+    panel: true
+    path: '1'
+    theme: dark
+    title: rooms
+  - badges: []
+    cards:
+      - elements:
+          - entity: sensor.time
+            hold_action:
+              action: none
+            style:
+              color: 'rgba(255, 255, 255, 0.7)'
+              font-size: 5.41vw
+              font-weight: 200
+              left: 2.7%
+              letter-spacing: '-0.05vw'
+              max-width: 1px
+              top: 10%
+            type: state-label
+          - entity: sensor.date_string
+            hold_action:
+              action: none
+            style:
+              color: 'rgba(255, 255, 255, 0.3)'
+              font-size: 2.3vw
+              font-weight: 300
+              left: 17.8%
+              letter-spacing: '-0.05vw'
+              text-align: left
+              top: 17%
+              width: 30%
+            tap_action:
+              action: none
+            type: state-label
+          - action: none
+            image: /local/tablet_proj/buttons/rooms.png
+            style:
+              border-radius: 0vw
+              box-shadow: '0px 0.2vw 0.8vw 0px rgba(0,0,0,0.1)'
+              left: 13.9%
+              opacity: 0
+              top: 27.7%
+              width: 25.8%
+            tap_action:
+              action: navigate
+              navigation_path: /lovelace-tablet/1
+            type: image
+          - action: none
+            image: /local/tablet_proj/buttons/lights.png
+            style:
+              border-radius: 0vw
+              box-shadow: '0px 0.2vw 0.8vw 0px rgba(0,0,0,0.1)'
+              left: 13.9%
+              opacity: 100%
+              top: 40.7%
+              width: 25.8%
+            tap_action:
+              action: navigate
+              navigation_path: /lovelace-tablet/2
+            type: image
+          - action: none
+            image: /local/tablet_proj/buttons/covers.png
+            style:
+              border-radius: 0vw
+              box-shadow: '0px 0.2vw 0.8vw 0px rgba(0,0,0,0.1)'
+              left: 13.9%
+              opacity: 0
+              top: 54.7%
+              width: 25.8%
+            tap_action:
+              action: navigate
+              navigation_path: /lovelace-tablet/3
+            type: image
+          - action: none
+            image: /local/tablet_proj/buttons/ac.png
+            style:
+              border-radius: 0vw
+              box-shadow: '0px 0.2vw 0.8vw 0px rgba(0,0,0,0.1)'
+              left: 13.9%
+              opacity: 0
+              top: 67.3%
+              width: 25.8%
+            tap_action:
+              action: navigate
+              navigation_path: /lovelace-tablet/4
+            type: image
+          - action: none
+            image: /local/tablet_proj/buttons/boiler.png
+            style:
+              border-radius: 0vw
+              box-shadow: '0px 0.2vw 0.8vw 0px rgba(0,0,0,0.1)'
+              left: 13.9%
+              opacity: 0
+              top: 79.3%
+              width: 25.8%
+            tap_action:
+              action: navigate
+              navigation_path: /lovelace-tablet/5
+            type: image
+          - action: none
+            image: /local/tablet_proj/buttons/media.png
+            style:
+              border-radius: 0vw
+              box-shadow: '0px 0.2vw 0.8vw 0px rgba(0,0,0,0.1)'
+              left: 13.9%
+              opacity: 0
+              top: 92.2%
+              width: 25.8%
+            tap_action:
+              action: navigate
+              navigation_path: /lovelace-tablet/6
+            type: image
+          - entity: media_player.spotify_yuvalkob
+            hide:
+              controls: true
+              name: true
+              power: true
+              progress: true
+              source: true
+              volume: true
+            idle_view:
+              after: 0.1
+              when_idle: true
+              when_paused: true
+              when_standby: true
+            style: |
+              :host {
+                left: 13.9%;
+                top:  92.2%;
+                width: 26.5078125%;
+                border-radius: 5vw;
+                overflow: hidden;
+                height: 4.9vw;
+                box-shadow: none !important;
+              }
+              ha-card {
+                border-radius: 1vw;
+                overflow: hidden !important;
+                box-shadow: none !important;
+                padding: 0.1vw 0.9vw 0.7vw 1.05vw !important;
+              }
+              ha-card.--inactive .mmp-player{
+                opacity: 0 !important;
+              }
+              #primaryProgress{
+                  background: #474A52 !important;
+              }
+              .entity__info{
+                height: 3.9vw;
+                width: 65% !important;
+                max-height: 20vw !important;
+                font-size: 1.9vw !important;
+                margin:0 0 0 1.4vw !important;
+                display: inline-block !important;
+              }
+              div.mmp__bg{
+                background: #1E2022;
+              }
+              ha-card.--inactive div.mmp__bg{
+                background: none;
+              }
+              div.mmp-player {
+                padding: 0vw;
+                height: 100%;
+              }
+              ha-card {
+                height: 100%;
+              }
+              mmp-powerstrip {
+                width: 100%;
+                display: block;
+                padding:0;
+              }
+              ha-icon{
+                display: block !important;
+                height: 2vw !important;
+                width: 2vw !important;
+                margin: 0.3vw 1.5vw 0 0vw !important;
+              }
+              .entity__icon{
+                float:right;
+                size: 30%;
+                padding: 0.1vw;
+                width: 3vw !important;
+                height: 3vw !important;
+                min-width: 0 !important;
+                min-height: 0 !important;
+                margin:0 !important;
+                display: inline-block !important;
+              }
+              .mmp-player__core {
+                height: auto;
+                width: 100% !important;
+                margin-bottom: 0.1vw;
+                display: block !important;
+                position: absolute !important;
+                bottom: 0;
+              }
+              .entity__info__media{
+                max-height: 100% !important;
+              }
+              .entity__info__media span::before{
+                content: none !important
+              }
+              .attr__media_title{
+                display:block;
+                color: white;
+                font-weight: 300;
+                font-size: 1.5vw !important;
+              }
+              .attr__media_artist{
+                font-size: 1.2w !important;
+                font-weight: 200;
+                color: white;
+              }
+              .entity__artwork{
+                display:inline-block;
+                float: right;
+                margin-right: 0 !important;
+                display: inline-block;
+                float: right;
+                width: 4.2vw !important;
+                height: 4.2vw !important;
+                min-width: 0 !important;
+                margin: 0.2vw 1vw 0 0 !important;
+              }
+            tap_action:
+              action: navigate
+              navigation_path: /lovelace-tablet/6
+            type: 'custom:mini-media-player'
+          - enableColumns: true
+            statePositionTop: true
+            rows:
+              - columns:
+                  - column: 1
+                    entities:
+                      - entities:
+                          - entity: switch.living_room_light
+                            icon: 'mdi:lightbulb-outline'
+                            name: Living Room
+                          - entity: switch.dining_room
+                            icon: 'mdi:lightbulb-outline'
+                            name: Dining Room
+                          - entity: switch.wall_light
+                            icon: 'mdi:lightbulb-outline'
+                            name: Wall Light
+                          - entity: switch.porch_light
+                            icon: 'mdi:lightbulb-outline'
+                            name: Porch Light
+                        title: Public Area
+                        popup:
+                          brightnessHeight: 350px
+                          brightnessWidth: 130px
+                          scenesInARow: 2
+                          switchHeight: 300px
+                          switchWidth: 110px
+                          type: 'custom:light-popup-card'
+                  - column: 2
+                    entities:
+                      - entities:
+                          - entity: switch.kitchen_light
+                            icon: 'mdi:lightbulb-outline'
+                            name: Kitchen
+                          - entity: switch.island_light
+                            icon: 'mdi:lightbulb-outline'
+                            name: Island
+                          - entity: light.kitchen_led
+                            icon: 'mdi:lightbulb-outline'
+                            name: Kitchen Led
+                          - entity: switch.entrance_light
+                            icon: 'mdi:lightbulb-outline'
+                            name: Entrance Light
+                        title: Kitchen
+                  - column: 3
+                    entities:
+                      - entities:
+                          - entity: switch.corridor_light
+                            icon: 'mdi:lightbulb-outline'
+                            name: Corridor Light
+                          - entity: switch.bedroom_light
+                            icon: 'mdi:lightbulb-outline'
+                            name: Parents Room
+                          - entity: switch.kids_light
+                            icon: 'mdi:lightbulb-outline'
+                            name: Kids Room
+                          - entity: switch.mamad_light
+                            icon: 'mdi:lightbulb-outline'
+                            name: Mamad
+                        title: Rooms
+            style:
+              height: 87%
+              left: 62%
+              top: 40%
+              width: 68%
+            type: 'custom:homekit-card'
+        image: /local/tablet_proj/background.png
+        type: picture-elements
+    panel: true
+    path: '2'
+    theme: dwains-theme-dark
+    title: LIGHTS
+  - badges: []
+    cards:
+      - elements:
+          - entity: sensor.time
+            hold_action:
+              action: none
+            style:
+              color: 'rgba(255, 255, 255, 0.7)'
+              font-size: 5.41vw
+              font-weight: 200
+              left: 2.7%
+              letter-spacing: '-0.05vw'
+              max-width: 1px
+              top: 10%
+            type: state-label
+          - entity: sensor.date_string
+            hold_action:
+              action: none
+            style:
+              color: 'rgba(255, 255, 255, 0.3)'
+              font-size: 2.3vw
+              font-weight: 300
+              left: 17.8%
+              letter-spacing: '-0.05vw'
+              text-align: left
+              top: 17%
+              width: 30%
+            tap_action:
+              action: none
+            type: state-label
+          - action: none
+            image: /local/tablet_proj/buttons/rooms.png
+            style:
+              border-radius: 0vw
+              box-shadow: '0px 0.2vw 0.8vw 0px rgba(0,0,0,0.1)'
+              left: 13.9%
+              opacity: 0
+              top: 27.7%
+              width: 25.8%
+            tap_action:
+              action: navigate
+              navigation_path: /lovelace-tablet/1
+            type: image
+          - action: none
+            image: /local/tablet_proj/buttons/lights.png
+            style:
+              border-radius: 0vw
+              box-shadow: '0px 0.2vw 0.8vw 0px rgba(0,0,0,0.1)'
+              left: 13.9%
+              opacity: 0
+              top: 40.7%
+              width: 25.8%
+            tap_action:
+              action: navigate
+              navigation_path: /lovelace-tablet/2
+            type: image
+          - action: none
+            image: /local/tablet_proj/buttons/covers.png
+            style:
+              border-radius: 0vw
+              box-shadow: '0px 0.2vw 0.8vw 0px rgba(0,0,0,0.1)'
+              left: 13.9%
+              opacity: 100%
+              top: 54.7%
+              width: 25.8%
+            tap_action:
+              action: navigate
+              navigation_path: /lovelace-tablet/3
+            type: image
+          - action: none
+            image: /local/tablet_proj/buttons/ac.png
+            style:
+              border-radius: 0vw
+              box-shadow: '0px 0.2vw 0.8vw 0px rgba(0,0,0,0.1)'
+              left: 13.9%
+              opacity: 0
+              top: 67.3%
+              width: 25.8%
+            tap_action:
+              action: navigate
+              navigation_path: /lovelace-tablet/4
+            type: image
+          - action: none
+            image: /local/tablet_proj/buttons/boiler.png
+            style:
+              border-radius: 0vw
+              box-shadow: '0px 0.2vw 0.8vw 0px rgba(0,0,0,0.1)'
+              left: 13.9%
+              opacity: 0
+              top: 79.3%
+              width: 25.8%
+            tap_action:
+              action: navigate
+              navigation_path: /lovelace-tablet/5
+            type: image
+          - action: none
+            image: /local/tablet_proj/buttons/media.png
+            style:
+              border-radius: 0vw
+              box-shadow: '0px 0.2vw 0.8vw 0px rgba(0,0,0,0.1)'
+              left: 13.9%
+              opacity: 0
+              top: 92.2%
+              width: 25.8%
+            tap_action:
+              action: navigate
+              navigation_path: /lovelace-tablet/6
+            type: image
+          - entity: media_player.spotify_yuvalkob
+            hide:
+              controls: true
+              name: true
+              power: true
+              progress: true
+              source: true
+              volume: true
+            idle_view:
+              after: 0.1
+              when_idle: true
+              when_paused: true
+              when_standby: true
+            style: |
+              :host {
+                left: 13.9%;
+                top:  92.2%;
+                width: 26.5078125%;
+                border-radius: 5vw;
+                overflow: hidden;
+                height: 4.9vw;
+                box-shadow: none !important;
+              }
+              ha-card {
+                border-radius: 1vw;
+                overflow: hidden !important;
+                box-shadow: none !important;
+                padding: 0.1vw 0.9vw 0.7vw 1.05vw !important;
+              }
+              ha-card.--inactive .mmp-player{
+                opacity: 0 !important;
+              }
+              #primaryProgress{
+                  background: #474A52 !important;
+              }
+              .entity__info{
+                height: 3.9vw;
+                width: 65% !important;
+                max-height: 20vw !important;
+                font-size: 1.9vw !important;
+                margin:0 0 0 1.4vw !important;
+                display: inline-block !important;
+              }
+              div.mmp__bg{
+                background: #1E2022;
+              }
+              ha-card.--inactive div.mmp__bg{
+                background: none;
+              }
+              div.mmp-player {
+                padding: 0vw;
+                height: 100%;
+              }
+              ha-card {
+                height: 100%;
+              }
+              mmp-powerstrip {
+                width: 100%;
+                display: block;
+                padding:0;
+              }
+              ha-icon{
+                display: block !important;
+                height: 2vw !important;
+                width: 2vw !important;
+                margin: 0.3vw 1.5vw 0 0vw !important;
+              }
+              .entity__icon{
+                float:right;
+                size: 30%;
+                padding: 0.1vw;
+                width: 3vw !important;
+                height: 3vw !important;
+                min-width: 0 !important;
+                min-height: 0 !important;
+                margin:0 !important;
+                display: inline-block !important;
+              }
+              .mmp-player__core {
+                height: auto;
+                width: 100% !important;
+                margin-bottom: 0.1vw;
+                display: block !important;
+                position: absolute !important;
+                bottom: 0;
+              }
+              .entity__info__media{
+                max-height: 100% !important;
+              }
+              .entity__info__media span::before{
+                content: none !important
+              }
+              .attr__media_title{
+                display:block;
+                color: white;
+                font-weight: 300;
+                font-size: 1.5vw !important;
+              }
+              .attr__media_artist{
+                font-size: 1.2w !important;
+                font-weight: 200;
+                color: white;
+              }
+              .entity__artwork{
+                display:inline-block;
+                float: right;
+                margin-right: 0 !important;
+                display: inline-block;
+                float: right;
+                width: 4.2vw !important;
+                height: 4.2vw !important;
+                min-width: 0 !important;
+                margin: 0.2vw 1vw 0 0 !important;
+              }
+            tap_action:
+              action: navigate
+              navigation_path: /lovelace-tablet/6
+            type: 'custom:mini-media-player'
+          - entities:
+              - entity: cover.living_room_cover
+                name: Living Room
+            style:
+              left: 50%
+              top: 20%
+            type: 'custom:shutter-card'
+          - entities:
+              - entity: cover.kitchen_cover
+                name: Kitchen
+            style:
+              left: 75%
+              top: 20%
+            type: 'custom:shutter-card'
+          - entities:
+              - entity: cover.parents_room_cover
+                name: Bedroom
+            style:
+              left: 50%
+              top: 60%
+            type: 'custom:shutter-card'
+          - entities:
+              - entity: cover.kids_room_cover
+                name: Kids Room
+            style:
+              left: 75%
+              top: 60%
+            type: 'custom:shutter-card'
+        image: /local/tablet_proj/background.png
+        type: picture-elements
+    panel: true
+    path: '3'
+    theme: dwains-theme-black
+    title: COVERS
+  - badges: []
+    cards:
+      - elements:
+          - entity: sensor.time
+            hold_action:
+              action: none
+            style:
+              color: 'rgba(255, 255, 255, 0.7)'
+              font-size: 5.41vw
+              font-weight: 200
+              left: 2.7%
+              letter-spacing: '-0.05vw'
+              max-width: 1px
+              top: 10%
+            type: state-label
+          - entity: sensor.date_string
+            hold_action:
+              action: none
+            style:
+              color: 'rgba(255, 255, 255, 0.3)'
+              font-size: 2.3vw
+              font-weight: 300
+              left: 17.8%
+              letter-spacing: '-0.05vw'
+              text-align: left
+              top: 17%
+              width: 30%
+            tap_action:
+              action: none
+            type: state-label
+          - action: none
+            image: /local/tablet_proj/buttons/rooms.png
+            style:
+              border-radius: 0vw
+              box-shadow: '0px 0.2vw 0.8vw 0px rgba(0,0,0,0.1)'
+              left: 13.9%
+              opacity: 0
+              top: 27.7%
+              width: 25.8%
+            tap_action:
+              action: navigate
+              navigation_path: /lovelace-tablet/1
+            type: image
+          - action: none
+            image: /local/tablet_proj/buttons/lights.png
+            style:
+              border-radius: 0vw
+              box-shadow: '0px 0.2vw 0.8vw 0px rgba(0,0,0,0.1)'
+              left: 13.9%
+              opacity: 0
+              top: 40.7%
+              width: 25.8%
+            tap_action:
+              action: navigate
+              navigation_path: /lovelace-tablet/2
+            type: image
+          - action: none
+            image: /local/tablet_proj/buttons/covers.png
+            style:
+              border-radius: 0vw
+              box-shadow: '0px 0.2vw 0.8vw 0px rgba(0,0,0,0.1)'
+              left: 13.9%
+              opacity: 0
+              top: 54.7%
+              width: 25.8%
+            tap_action:
+              action: navigate
+              navigation_path: /lovelace-tablet/3
+            type: image
+          - action: none
+            image: /local/tablet_proj/buttons/ac.png
+            style:
+              border-radius: 0vw
+              box-shadow: '0px 0.2vw 0.8vw 0px rgba(0,0,0,0.1)'
+              left: 13.9%
+              opacity: 100%
+              top: 67.3%
+              width: 25.8%
+            tap_action:
+              action: navigate
+              navigation_path: /lovelace-tablet/4
+            type: image
+          - action: none
+            image: /local/tablet_proj/buttons/boiler.png
+            style:
+              border-radius: 0vw
+              box-shadow: '0px 0.2vw 0.8vw 0px rgba(0,0,0,0.1)'
+              left: 13.9%
+              opacity: 0
+              top: 79.3%
+              width: 25.8%
+            tap_action:
+              action: navigate
+              navigation_path: /lovelace-tablet/5
+            type: image
+          - action: none
+            image: /local/tablet_proj/buttons/media.png
+            style:
+              border-radius: 0vw
+              box-shadow: '0px 0.2vw 0.8vw 0px rgba(0,0,0,0.1)'
+              left: 13.9%
+              opacity: 0
+              top: 92.2%
+              width: 25.8%
+            tap_action:
+              action: navigate
+              navigation_path: /lovelace-tablet/6
+            type: image
+          - entity: media_player.spotify_yuvalkob
+            hide:
+              controls: true
+              name: true
+              power: true
+              progress: true
+              source: true
+              volume: true
+            idle_view:
+              after: 0.1
+              when_idle: true
+              when_paused: true
+              when_standby: true
+            style: |
+              :host {
+                left: 13.9%;
+                top:  92.2%;
+                width: 26.5078125%;
+                border-radius: 5vw;
+                overflow: hidden;
+                height: 4.9vw;
+                box-shadow: none !important;
+              }
+              ha-card {
+                border-radius: 1vw;
+                overflow: hidden !important;
+                box-shadow: none !important;
+                padding: 0.1vw 0.9vw 0.7vw 1.05vw !important;
+              }
+              ha-card.--inactive .mmp-player{
+                opacity: 0 !important;
+              }
+              #primaryProgress{
+                  background: #474A52 !important;
+              }
+              .entity__info{
+                height: 3.9vw;
+                width: 65% !important;
+                max-height: 20vw !important;
+                font-size: 1.9vw !important;
+                margin:0 0 0 1.4vw !important;
+                display: inline-block !important;
+              }
+              div.mmp__bg{
+                background: #1E2022;
+              }
+              ha-card.--inactive div.mmp__bg{
+                background: none;
+              }
+              div.mmp-player {
+                padding: 0vw;
+                height: 100%;
+              }
+              ha-card {
+                height: 100%;
+              }
+              mmp-powerstrip {
+                width: 100%;
+                display: block;
+                padding:0;
+              }
+              ha-icon{
+                display: block !important;
+                height: 2vw !important;
+                width: 2vw !important;
+                margin: 0.3vw 1.5vw 0 0vw !important;
+              }
+              .entity__icon{
+                float:right;
+                size: 30%;
+                padding: 0.1vw;
+                width: 3vw !important;
+                height: 3vw !important;
+                min-width: 0 !important;
+                min-height: 0 !important;
+                margin:0 !important;
+                display: inline-block !important;
+              }
+              .mmp-player__core {
+                height: auto;
+                width: 100% !important;
+                margin-bottom: 0.1vw;
+                display: block !important;
+                position: absolute !important;
+                bottom: 0;
+              }
+              .entity__info__media{
+                max-height: 100% !important;
+              }
+              .entity__info__media span::before{
+                content: none !important
+              }
+              .attr__media_title{
+                display:block;
+                color: white;
+                font-weight: 300;
+                font-size: 1.5vw !important;
+              }
+              .attr__media_artist{
+                font-size: 1.2w !important;
+                font-weight: 200;
+                color: white;
+              }
+              .entity__artwork{
+                display:inline-block;
+                float: right;
+                margin-right: 0 !important;
+                display: inline-block;
+                float: right;
+                width: 4.2vw !important;
+                height: 4.2vw !important;
+                min-width: 0 !important;
+                margin: 0.2vw 1vw 0 0 !important;
+              }
+            tap_action:
+              action: navigate
+              navigation_path: /lovelace-tablet/6
+            type: 'custom:mini-media-player'
+          - control:
+              _headings: flase
+              _names: false
+              hvac:
+                dry: false
+                fan_only: flase
+                heat_cool: false
+            entity: climate.living_room
+            name: Living Room
+            no_card: true
+            small_i: true
+            step: 1
+            step_leyout: column
+            step_size: 1
+            style:
+              '--st-mode-active-background': 'rgba(29, 161, 242)'
+              border-color: grey
+              border-radius: 10px
+              height: 50%
+              left: 48%
+              top: 30%
+              width: 40%
+            title: Living <br\> Room
+            type: 'custom:simple-thermostat'
+          - control:
+              _headings: flase
+              _names: false
+              hvac:
+                dry: false
+                fan_only: flase
+                heat_cool: false
+            entity: climate.living_room
+            name: Parents Bedroom
+            no_card: true
+            small_i: true
+            step: 1
+            step_leyout: column
+            step_size: 1
+            style:
+              '--st-mode-active-background': 'rgba(29, 161, 242)'
+              border-radius: 10px
+              height: 50%
+              left: 83%
+              top: 30%
+              width: 35%
+            title: Living <br\> Room
+            type: 'custom:simple-thermostat'
+        image: /local/tablet_proj/background.png
+        style: border-radiusL 0px
+        type: picture-elements
+    panel: true
+    path: '4'
+    theme: dwains-theme-black
+    title: AC
+  - badges: []
+    cards:
+      - elements:
+          - entity: sensor.time
+            hold_action:
+              action: none
+            style:
+              color: 'rgba(255, 255, 255, 0.7)'
+              font-size: 5.41vw
+              font-weight: 200
+              left: 2.7%
+              letter-spacing: '-0.05vw'
+              max-width: 1px
+              top: 10%
+            type: state-label
+          - entity: sensor.date_string
+            hold_action:
+              action: none
+            style:
+              color: 'rgba(255, 255, 255, 0.3)'
+              font-size: 2.3vw
+              font-weight: 300
+              left: 17.8%
+              letter-spacing: '-0.05vw'
+              text-align: left
+              top: 17%
+              width: 30%
+            tap_action:
+              action: none
+            type: state-label
+          - action: none
+            image: /local/tablet_proj/buttons/rooms.png
+            style:
+              border-radius: 0vw
+              box-shadow: '0px 0.2vw 0.8vw 0px rgba(0,0,0,0.1)'
+              left: 13.9%
+              opacity: 0
+              top: 27.7%
+              width: 25.8%
+            tap_action:
+              action: navigate
+              navigation_path: /lovelace-tablet/1
+            type: image
+          - action: none
+            image: /local/tablet_proj/buttons/lights.png
+            style:
+              border-radius: 0vw
+              box-shadow: '0px 0.2vw 0.8vw 0px rgba(0,0,0,0.1)'
+              left: 13.9%
+              opacity: 0
+              top: 40.7%
+              width: 25.8%
+            tap_action:
+              action: navigate
+              navigation_path: /lovelace-tablet/2
+            type: image
+          - action: none
+            image: /local/tablet_proj/buttons/covers.png
+            style:
+              border-radius: 0vw
+              box-shadow: '0px 0.2vw 0.8vw 0px rgba(0,0,0,0.1)'
+              left: 13.9%
+              opacity: 0
+              top: 54.7%
+              width: 25.8%
+            tap_action:
+              action: navigate
+              navigation_path: /lovelace-tablet/3
+            type: image
+          - action: none
+            image: /local/tablet_proj/buttons/ac.png
+            style:
+              border-radius: 0vw
+              box-shadow: '0px 0.2vw 0.8vw 0px rgba(0,0,0,0.1)'
+              left: 13.9%
+              opacity: 0
+              top: 67.3%
+              width: 25.8%
+            tap_action:
+              action: navigate
+              navigation_path: /lovelace-tablet/4
+            type: image
+          - action: none
+            image: /local/tablet_proj/buttons/boiler.png
+            style:
+              border-radius: 0vw
+              box-shadow: '0px 0.2vw 0.8vw 0px rgba(0,0,0,0.1)'
+              left: 13.9%
+              opacity: 100%
+              top: 79.3%
+              width: 25.8%
+            tap_action:
+              action: navigate
+              navigation_path: /lovelace-tablet/5
+            type: image
+          - action: none
+            image: /local/tablet_proj/buttons/media.png
+            style:
+              border-radius: 0vw
+              box-shadow: '0px 0.2vw 0.8vw 0px rgba(0,0,0,0.1)'
+              left: 13.9%
+              opacity: 0
+              top: 92.2%
+              width: 25.8%
+            tap_action:
+              action: navigate
+              navigation_path: /lovelace-tablet/6
+            type: image
+          - entity: media_player.spotify_yuvalkob
+            hide:
+              controls: true
+              name: true
+              power: true
+              progress: true
+              source: true
+              volume: true
+            idle_view:
+              after: 0.1
+              when_idle: true
+              when_paused: true
+              when_standby: true
+            style: |
+              :host {
+                left: 13.9%;
+                top:  92.2%;
+                width: 26.5078125%;
+                border-radius: 5vw;
+                overflow: hidden;
+                height: 4.9vw;
+                box-shadow: none !important;
+              }
+              ha-card {
+                border-radius: 1vw;
+                overflow: hidden !important;
+                box-shadow: none !important;
+                padding: 0.1vw 0.9vw 0.7vw 1.05vw !important;
+              }
+              ha-card.--inactive .mmp-player{
+                opacity: 0 !important;
+              }
+              #primaryProgress{
+                  background: #474A52 !important;
+              }
+              .entity__info{
+                height: 3.9vw;
+                width: 65% !important;
+                max-height: 20vw !important;
+                font-size: 1.9vw !important;
+                margin:0 0 0 1.4vw !important;
+                display: inline-block !important;
+              }
+              div.mmp__bg{
+                background: #1E2022;
+              }
+              ha-card.--inactive div.mmp__bg{
+                background: none;
+              }
+              div.mmp-player {
+                padding: 0vw;
+                height: 100%;
+              }
+              ha-card {
+                height: 100%;
+              }
+              mmp-powerstrip {
+                width: 100%;
+                display: block;
+                padding:0;
+              }
+              ha-icon{
+                display: block !important;
+                height: 2vw !important;
+                width: 2vw !important;
+                margin: 0.3vw 1.5vw 0 0vw !important;
+              }
+              .entity__icon{
+                float:right;
+                size: 30%;
+                padding: 0.1vw;
+                width: 3vw !important;
+                height: 3vw !important;
+                min-width: 0 !important;
+                min-height: 0 !important;
+                margin:0 !important;
+                display: inline-block !important;
+              }
+              .mmp-player__core {
+                height: auto;
+                width: 100% !important;
+                margin-bottom: 0.1vw;
+                display: block !important;
+                position: absolute !important;
+                bottom: 0;
+              }
+              .entity__info__media{
+                max-height: 100% !important;
+              }
+              .entity__info__media span::before{
+                content: none !important
+              }
+              .attr__media_title{
+                display:block;
+                color: white;
+                font-weight: 300;
+                font-size: 1.5vw !important;
+              }
+              .attr__media_artist{
+                font-size: 1.2w !important;
+                font-weight: 200;
+                color: white;
+              }
+              .entity__artwork{
+                display:inline-block;
+                float: right;
+                margin-right: 0 !important;
+                display: inline-block;
+                float: right;
+                width: 4.2vw !important;
+                height: 4.2vw !important;
+                min-width: 0 !important;
+                margin: 0.2vw 1vw 0 0 !important;
+              }
+            tap_action:
+              action: navigate
+              navigation_path: /lovelace-tablet/6
+            type: 'custom:mini-media-player'
+          - cards:
+              - cards:
+                  - entities:
+                      - entity: switch.boiler
+                        icon: 'mdi:water'
+                        tap_action:
+                          action: toggle
+                      - entity: timer.boiler_timer
+                    style: |
+                      ha-card {
+                      border-radius: 10px;
+                      box-shadow: '0px 5px 5px rgba(0,0,0,0.3)';
+
+                       }
+                    type: glance
+                  - cards:
+                      - cards:
+                          - name: 15 Minutes
+                            show_icon: false
+                            show_name: true
+                            style: |
+                              ha-card {
+                              border-radius: 10px;
+                              box-shadow: '0px 5px 5px rgba(0,0,0,0.3)';
+
+                               }
+                            tap_action:
+                              action: call-service
+                              service: script.turn_on
+                              service_data:
+                                entity_id: script.1586611151611
+                            type: button
+                          - name: 30 Minutes
+                            show_icon: false
+                            show_name: true
+                            style: |
+                              ha-card {
+                              border-radius: 10px;
+                              box-shadow: '0px 5px 5px rgba(0,0,0,0.3)';
+
+                              }
+                            tap_action:
+                              action: call-service
+                              service: script.turn_on
+                              service_data:
+                                entity_id: script.1586611609426
+                            type: button
+                        type: horizontal-stack
+                      - cards:
+                          - name: 45 Minutes
+                            show_icon: false
+                            show_name: true
+                            style: |
+                              ha-card {
+                              border-radius: 10px;
+                              box-shadow: '0px 5px 5px rgba(0,0,0,0.3)';
+                              #top: 50%;
+                              }
+                            tap_action:
+                              action: call-service
+                              service: script.turn_on
+                              service_data:
+                                entity_id: script.1586611687479
+                            type: button
+                          - name: 60 Minutes
+                            show_icon: false
+                            show_name: true
+                            style: |
+                              ha-card {
+                              border-radius: 10px;
+                              box-shadow: '0px 5px 5px rgba(0,0,0,0.3)';
+                              #top: 50%;
+                              }
+                            tap_action:
+                              action: call-service
+                              service: script.turn_on
+                              service_data:
+                                entity_id: script.1586611768344
+                            type: button
+                        type: horizontal-stack
+                    type: vertical-stack
+                style: |
+                  ha-card {
+                  border-radius: 10px;
+                  box-shadow: '0px 5px 5px rgba(0,0,0,0.3)';
+
+                   }
+                type: vertical-stack
+            style:
+              left: 65%
+              top: 30%
+              width: 50%
+            type: 'custom:vertical-stack-in-card'
+          - entities:
+              switch.boiler:
+                actions:
+                  - name: Turn on
+                    service: turn_on
+                  - service: turn_off
+                icon: 'mdi:water'
+                name: Boiler
+            style:
+              left: 65%
+              top: 70%
+              width: 50%
+            type: 'custom:scheduler-card'
+        image: /local/tablet_proj/background.png
+        type: picture-elements
+    panel: true
+    path: '5'
+    theme: dwains-theme-dark
+    title: BOILER
+  - badges: []
+    cards:
+      - elements:
+          - entity: sensor.time
+            hold_action:
+              action: none
+            style:
+              color: 'rgba(255, 255, 255, 0.7)'
+              font-size: 5.41vw
+              font-weight: 200
+              left: 2.7%
+              letter-spacing: '-0.05vw'
+              max-width: 1px
+              top: 10%
+            type: state-label
+          - entity: sensor.date_string
+            hold_action:
+              action: none
+            style:
+              color: 'rgba(255, 255, 255, 0.3)'
+              font-size: 2.3vw
+              font-weight: 300
+              left: 17.8%
+              letter-spacing: '-0.05vw'
+              text-align: left
+              top: 17%
+              width: 30%
+            tap_action:
+              action: none
+            type: state-label
+          - action: none
+            image: /local/tablet_proj/buttons/rooms.png
+            style:
+              border-radius: 0vw
+              box-shadow: '0px 0.2vw 0.8vw 0px rgba(0,0,0,0.1)'
+              left: 13.9%
+              opacity: 0
+              top: 27.7%
+              width: 25.8%
+            tap_action:
+              action: navigate
+              navigation_path: /lovelace-tablet/1
+            type: image
+          - action: none
+            image: /local/tablet_proj/buttons/lights.png
+            style:
+              border-radius: 0vw
+              box-shadow: '0px 0.2vw 0.8vw 0px rgba(0,0,0,0.1)'
+              left: 13.9%
+              opacity: 0
+              top: 40.7%
+              width: 25.8%
+            tap_action:
+              action: navigate
+              navigation_path: /lovelace-tablet/2
+            type: image
+          - action: none
+            image: /local/tablet_proj/buttons/covers.png
+            style:
+              border-radius: 0vw
+              box-shadow: '0px 0.2vw 0.8vw 0px rgba(0,0,0,0.1)'
+              left: 13.9%
+              opacity: 0
+              top: 54.7%
+              width: 25.8%
+            tap_action:
+              action: navigate
+              navigation_path: /lovelace-tablet/3
+            type: image
+          - action: none
+            image: /local/tablet_proj/buttons/ac.png
+            style:
+              border-radius: 0vw
+              box-shadow: '0px 0.2vw 0.8vw 0px rgba(0,0,0,0.1)'
+              left: 13.9%
+              opacity: 0
+              top: 67.3%
+              width: 25.8%
+            tap_action:
+              action: navigate
+              navigation_path: /lovelace-tablet/4
+            type: image
+          - action: none
+            image: /local/tablet_proj/buttons/boiler.png
+            style:
+              border-radius: 0vw
+              box-shadow: '0px 0.2vw 0.8vw 0px rgba(0,0,0,0.1)'
+              left: 13.9%
+              opacity: 0
+              top: 79.3%
+              width: 25.8%
+            tap_action:
+              action: navigate
+              navigation_path: /lovelace-tablet/5
+            type: image
+          - action: none
+            image: /local/tablet_proj/buttons/media.png
+            style:
+              border-radius: 0vw
+              box-shadow: '0px 0.2vw 0.8vw 0px rgba(0,0,0,0.1)'
+              left: 13.9%
+              opacity: 100%
+              top: 92.2%
+              width: 25.8%
+            tap_action:
+              action: navigate
+              navigation_path: /lovelace-tablet/6
+            type: image
+          - artwork: full-cover
+            entity: media_player.spotify_yuvalkob
+            hide:
+              controls: true
+              icon: true
+              info: false
+              name: true
+              power: true
+              progress: true
+              source: true
+              volume: true
+            style: |
+              :host {
+                left: 46% !important;
+                top: 40.9% !important;
+                width: 33% !important;
+                height: 67.3% !important;
+              }
+              ha-card{
+                border-radius: 1vw !important;
+                overflow: hidden !important;
+                height: 100%;
+              }
+              :host #primaryProgress{
+                background: #474A52 !important;
+              }
+            type: 'custom:mini-media-player'
+          - display_style: grid
+            limit: 9
+            sensor: sensor.spotifyplaylist
+            speaker_entity: media_player.spotify_yuvalkob
+            spotify_entity: media_player.spotify_yuvalkob
+            style:
+              height: 32.3%
+              left: 79.5%
+              top: 24%
+              width: 31%
+            type: 'custom:spotify-playlist-card'
+          - artwork: material
+            entity: media_player.spotify_yuvalkob
+            style:
+              left: 62.53%
+              top: 90%
+              width: 66%
+            type: 'custom:mini-media-player'
+        image: /local/tablet_proj/background.png
+        type: picture-elements
+    panel: true
+    path: '6'
+    theme: dwains-theme-dark
+    title: MEDIA
+  - badges: []
+    cards:
+      - elements:
+          - entity: sensor.time
+            hold_action:
+              action: none
+            style:
+              color: 'rgba(255, 255, 255, 0.7)'
+              font-size: 5.41vw
+              font-weight: 200
+              left: 2.7%
+              letter-spacing: '-0.05vw'
+              max-width: 1px
+              top: 10%
+            type: state-label
+          - entity: sensor.date_string
+            hold_action:
+              action: none
+            style:
+              color: 'rgba(255, 255, 255, 0.3)'
+              font-size: 2.3vw
+              font-weight: 300
+              left: 17.8%
+              letter-spacing: '-0.05vw'
+              text-align: left
+              top: 17%
+              width: 30%
+            tap_action:
+              action: none
+            type: state-label
+          - action: none
+            image: /local/tablet_proj/buttons/rooms.png
+            style:
+              border-radius: 0vw
+              box-shadow: '0px 0.2vw 0.8vw 0px rgba(0,0,0,0.1)'
+              left: 13.9%
+              opacity: 0
+              top: 27.7%
+              width: 25.8%
+            tap_action:
+              action: navigate
+              navigation_path: /lovelace-tablet/1
+            type: image
+          - action: none
+            image: /local/tablet_proj/buttons/lights.png
+            style:
+              border-radius: 0vw
+              box-shadow: '0px 0.2vw 0.8vw 0px rgba(0,0,0,0.1)'
+              left: 13.9%
+              opacity: 0
+              top: 40.7%
+              width: 25.8%
+            tap_action:
+              action: navigate
+              navigation_path: /lovelace-tablet/2
+            type: image
+          - action: none
+            image: /local/tablet_proj/buttons/covers.png
+            style:
+              border-radius: 0vw
+              box-shadow: '0px 0.2vw 0.8vw 0px rgba(0,0,0,0.1)'
+              left: 13.9%
+              opacity: 0
+              top: 54.7%
+              width: 25.8%
+            tap_action:
+              action: navigate
+              navigation_path: /lovelace-tablet/3
+            type: image
+          - action: none
+            image: /local/tablet_proj/buttons/ac.png
+            style:
+              border-radius: 0vw
+              box-shadow: '0px 0.2vw 0.8vw 0px rgba(0,0,0,0.1)'
+              left: 13.9%
+              opacity: 0
+              top: 67.3%
+              width: 25.8%
+            tap_action:
+              action: navigate
+              navigation_path: /lovelace-tablet/4
+            type: image
+          - action: none
+            image: /local/tablet_proj/buttons/boiler.png
+            style:
+              border-radius: 0vw
+              box-shadow: '0px 0.2vw 0.8vw 0px rgba(0,0,0,0.1)'
+              left: 13.9%
+              opacity: 0
+              top: 79.3%
+              width: 25.8%
+            tap_action:
+              action: navigate
+              navigation_path: /lovelace-tablet/5
+            type: image
+          - action: none
+            image: /local/tablet_proj/buttons/media.png
+            style:
+              border-radius: 0vw
+              box-shadow: '0px 0.2vw 0.8vw 0px rgba(0,0,0,0.1)'
+              left: 13.9%
+              opacity: 0
+              top: 92.2%
+              width: 25.8%
+            tap_action:
+              action: navigate
+              navigation_path: /lovelace-tablet/6
+            type: image
+          - entity: media_player.spotify_yuvalkob
+            hide:
+              controls: true
+              name: true
+              power: true
+              progress: true
+              source: true
+              volume: true
+            idle_view:
+              after: 0.1
+              when_idle: true
+              when_paused: true
+              when_standby: true
+            style: |
+              :host {
+                left: 13.9%;
+                top:  91.7%;
+                width: 26.5078125%;
+                border-radius: 5vw;
+                overflow: hidden;
+                height: 4.9vw;
+                box-shadow: none !important;
+              }
+              ha-card {
+                border-radius: 1vw;
+                overflow: hidden !important;
+                box-shadow: none !important;
+                padding: 0.1vw 0.9vw 0.7vw 1.05vw !important;
+              }
+              ha-card.--inactive .mmp-player{
+                opacity: 0 !important;
+              }
+              #primaryProgress{
+                  background: #474A52 !important;
+              }
+              .entity__info{
+                height: 3.9vw;
+                width: 65% !important;
+                max-height: 20vw !important;
+                font-size: 1.9vw !important;
+                margin:0 0 0 1.4vw !important;
+                display: inline-block !important;
+              }
+              div.mmp__bg{
+                background: #1E2022;
+              }
+              ha-card.--inactive div.mmp__bg{
+                background: none;
+              }
+              div.mmp-player {
+                padding: 0vw;
+                height: 100%;
+              }
+              ha-card {
+                height: 100%;
+              }
+              mmp-powerstrip {
+                width: 100%;
+                display: block;
+                padding:0;
+              }
+              ha-icon{
+                display: block !important;
+                height: 2vw !important;
+                width: 2vw !important;
+                margin: 0.3vw 1.5vw 0 0vw !important;
+              }
+              .entity__icon{
+                float:right;
+                size: 30%;
+                padding: 0.1vw;
+                width: 3vw !important;
+                height: 3vw !important;
+                min-width: 0 !important;
+                min-height: 0 !important;
+                margin:0 !important;
+                display: inline-block !important;
+              }
+              .mmp-player__core {
+                height: auto;
+                width: 100% !important;
+                margin-bottom: 0.1vw;
+                display: block !important;
+                position: absolute !important;
+                bottom: 0;
+              }
+              .entity__info__media{
+                max-height: 100% !important;
+              }
+              .entity__info__media span::before{
+                content: none !important
+              }
+              .attr__media_title{
+                display:block;
+                color: white;
+                font-weight: 300;
+                font-size: 1.5vw !important;
+              }
+              .attr__media_artist{
+                font-size: 1.2w !important;
+                font-weight: 200;
+                color: white;
+              }
+              .entity__artwork{
+                display:inline-block;
+                float: right;
+                margin-right: 0 !important;
+                display: inline-block;
+                float: right;
+                width: 4.2vw !important;
+                height: 4.2vw !important;
+                min-width: 0 !important;
+                margin: 0.2vw 1vw 0 0 !important;
+              }
+            tap_action:
+              action: navigate
+              navigation_path: /lovelace-tablet/6
+            type: 'custom:mini-media-player'
+          - current: true
+            details: true
+            entity: weather.openweathermap
+            forecast: true
+            name: Weather
+            style: |
+              :host {
+                left: 64.5%;
+                top:  50%;
+                width: 64%;
+                overflow: hidden;
+                height: 63%;
+                background: none !important;
+                box-shadow: none !important;
+              }
+              .current {
+                margin-bottom: 7vw;
+              }
+              .variations {
+                margin-bottom: 4vw;
+              }
+              ha-card {
+                height: 100%;
+                background: none  !important;
+                box-shadow: none !important;
+                border-radius: 1vw;
+                font-size: 1.2vw !important;
+              }
+              .forecast{
+                padding: 0 2.5%;
+                width: 95%;
+              }
+              .forecast .day:first-child{
+                border-left: 0.1em solid #d9d9d9;
+              }
+              .forecast .day:last-child{
+                border-right: 0.1em solid #d9d9d9;
+              }
+            type: 'custom:weather-card'
+        image: /local/tablet_proj/background.png
+        type: picture-elements
+    panel: true
+    path: '7'
+    theme: dwains-theme-dark
+    title: WEATHER
